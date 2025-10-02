@@ -1,8 +1,8 @@
 const { randomUUID } = require('node:crypto');
 
 let users = [
-    { id: randomUUID, name: 'Luis', email: "julu@gmail.com", age: 23, active: true },
-    { id: randomUUID, name: 'Jorge', email: "jorge@gmail.com", age: 25, active: false },
+    { id: randomUUID(), name: 'Luis', email: "julu@gmail.com", age: 23, active: true },
+    { id: randomUUID(), name: 'Jorge', email: "jorge@gmail.com", age: 25, active: false },
 ];
 
 function findAll() {
@@ -10,7 +10,7 @@ function findAll() {
 }
 
 function findById(id) {
-    return users.find(u => u.id === id || null);
+    return users.find(u => u.id === id ) || null;
 }
 
 function addUser(item) {
@@ -18,7 +18,7 @@ function addUser(item) {
         id: randomUUID(),
         name: item.name,   //Obligatorio
         email: item.email, //Obligatorio
-        age: item.age,     //Obligatorio
+        age: item.age,     //OPCIONAL
         active: true
     }
     users.push(user);
